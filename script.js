@@ -85,7 +85,7 @@ form.addEventListener("submit", function (e) {
   const rooms = document.getElementById("rooms").value;
 
   // customize this your number
-  const hotelNumber = "2347047074290"; // your WhatsApp number without "+"
+  const apartmentNumber = "2347047074290"; // your WhatsApp number without "+"
 
   // build WhatsApp message
   const message = `Hello Prestige Haven!%0A
@@ -110,9 +110,9 @@ form.addEventListener("submit", function (e) {
   });
 
   // redirect to WhatsApp
-  window.location.href = `https://wa.me/${hotelNumber}?text=${message}`, '_blank';
+  (window.location.href = `https://wa.me/${apartmentNumber}?text=${message}`),
+    "_blank";
 });
-
 
 const form2 = document.getElementById("booking-form-2"); // give your form id=bookingForm for easy grab
 
@@ -131,7 +131,7 @@ form2.addEventListener("submit", function (e) {
   const rooms = document.getElementById("rooms").value;
 
   // customize this your number
-  const hotelNumber = "2347047074290"; 
+  const apartmentNumber = "2347047074290";
 
   // build WhatsApp message
   const message = `Hello Prestige Haven!%0A
@@ -156,46 +156,52 @@ form2.addEventListener("submit", function (e) {
   });
 
   // redirect to WhatsApp
-  window.location.href = `https://wa.me/${hotelNumber}?text=${message}`, '_blank';
+  (window.location.href = `https://wa.me/${apartmentNumber}?text=${message}`),
+    "_blank";
 });
-
-
 
 // Contact Form Submission
 const contactForm = document.getElementById("contact-form");
 
-contactForm.addEventListener("submit", function(e) {
-    e.preventDefault();
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    const name = contactForm.querySelector('input[name="name"]').value;
-    const email = contactForm.querySelector('input[name="email"]').value;
-    const number = contactForm.querySelector('input[name="number"]').value;
-    const message = contactForm.querySelector('textarea[name="message"]').value;
+  const name = contactForm.querySelector('input[name="name"]').value;
+  const email = contactForm.querySelector('input[name="email"]').value;
+  const number = contactForm.querySelector('input[name="number"]').value;
+  const message = contactForm.querySelector('textarea[name="message"]').value;
 
-    emailjs.send("service_iuc4for", "template_o5bqyj9", {
+  emailjs
+    .send(
+      "service_iuc4for",
+      "template_o5bqyj9",
+      {
         name: name,
         email: email,
         number: number,
-        message: message
-    }, "bFf-DTeZBTEglOkWm")
-    .then(() => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Message Sent!',
-        text: 'Thank you for contacting us. We will get back to you shortly.',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Okay'
-      });
-    }, (error) => {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Something went wrong. Please try again later!',
-        confirmButtonColor: '#d33',
-        confirmButtonText: 'Close'
-      });
+        message: message,
+      },
+      "bFf-DTeZBTEglOkWm"
+    )
+    .then(
+      () => {
+        Swal.fire({
+          icon: "success",
+          title: "Message Sent!",
+          text: "Thank you for contacting us. We will get back to you shortly.",
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "Okay",
+        });
+      },
+      (error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong. Please try again later!",
+          confirmButtonColor: "#d33",
+          confirmButtonText: "Close",
+        });
         console.log(error);
-    });
+      }
+    );
 });
-
-
